@@ -1,45 +1,38 @@
 import React, { useState } from 'react';
 import ButtonComponents from '../MyButtons/index';
+//import styles from './counter.module.css';
+import styles from './counter.module.css';
 
 const CounterComponent = () => {
-    const [count, setCount] = useState(0);
-  
-    const handleClick = (operation) => {
-      switch (operation) {
-        case 'ADD':
-          setCount(count + 1);
-          break;
-        case 'SUBSTRACT':
-          setCount(count - 1);
-          break;
-        case 'CLEAR':
-          setCount(0);
-          break;
-        default:
-          break;
-      }
-    };
-  
-    return (
-      <div>
-        <p>Contador: {count}</p>
-        <ButtonComponents
-          tipo="ADD"
-          onClick={() => handleClick('ADD')}
-        />
-        <ButtonComponents
-          tipo="SUBSTRACT"
-          onClick={() => handleClick('SUBSTRACT')}
-        />
-        <ButtonComponents
-          tipo="CLEAR"
-          onClick={() => handleClick('CLEAR')}
-        />
-      </div>
-    );
+  const [count, setCount] = useState(0);
+
+  const handleClick = (operation) => {
+    switch (operation) {
+      case 'ADD':
+        setCount(count + 1);
+        break;
+      case 'SUBSTRACT':
+        setCount(count - 1);
+        break;
+      case 'CLEAR':
+        setCount(0);
+        break;
+      default:
+        break;
+    }
   };
   
 
-export default CounterComponent;
+  return (
+    <div>
+      <p >{count}</p>
+      <div >
+        <ButtonComponents tipo="ADD" onClick={() => handleClick('ADD')} />
+        <ButtonComponents tipo="SUBSTRACT" onClick={() => handleClick('SUBSTRACT')} />
+        <ButtonComponents tipo="CLEAR" onClick={() => handleClick('CLEAR')} />
+      </div>
+    </div>
+  );
+};
 
-//https://legacy.reactjs.org/docs/hooks-state.html
+export default CounterComponent;
